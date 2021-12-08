@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="min-h-screen bg-gray-900 text-white">
+    <h1
+        class="
+        container xl:m-auto ml-4 py-5
+        font-bold text-3xl md:text-4xl
+    ">
+        Películas Populares
+    </h1>
+    <form
+        #basicForm="ngForm"
+        (submit)="getColor(basicForm.value)"
+    >
+        <div class="flex flex-col mx-10 xl:container xl:m-auto">
+            <input
+                class="mb-4 rounded-md p-2 text-gray-900"
+                autocomplete="off"
+                ngModel
+                type="text"
+                name="color"
+                placeholder="Escriba un color en hex"
+            />
+            <button
+                id="test"
+                class="
+                    p-2 mb-4
+                    border border-yellow-400
+                    bg-transparent rounded-full
+                    text-white font-bold
+                    transition transform ease-in-out duration-300
+                    hover:bg-yellow-400
+            ">
+                Cambiar color
+            </button>
+        </div>
+    </form>
+    <section class="flex justify-center mr-5">
+        <div
+            class="
+            flex flex-col md:grid md:grid-cols-3 md:gap-2 xl:grid-cols-6
+        ">
+            <div
+                *ngFor="let item of apiData.results"
+                (click)="saveMovie(item)"
+                class="
+                group flex-none
+                ml-5 mt-2 mb-5
+                relative w-72 md:w-48
+                filter drop-shadow-lg
+                bg-transparent overflow-hidden rounded-2xl cursor-pointer
+            ">
+                <img
+                    alt="movie_poster"
+                    src="https://image.tmdb.org/t/p/w300{{item.poster_path}}"
+                    class="
+                    rounded-3xl object-fill
+                    transform
+                    hover:scale-125
+                    transition duration-500 ease-in-out
+                "/>
+                <div class="absolute bottom-0 left-0 bg-yellow-400 rounded-tr-md p-2">
+                    <h2 className='m-2 text-md font-medium text-white tracking-wider'>{{item.title}}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

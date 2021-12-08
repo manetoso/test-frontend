@@ -1,0 +1,69 @@
+<main class="flex justify-center items-center h-screen bg-gray-900">
+    <section class="bg-gray-900 border-2 border-gray-700 rounded-lg p-4 w-80">
+        <form
+            #basicForm="ngForm"
+            (submit)="getData(basicForm.value)"
+        >
+            <div class="flex flex-col">
+                <h3
+                    class="
+                    text-white font-bold
+                    text-3xl text-center
+                    mb-5
+                ">
+                    Registro
+                </h3>
+                <span
+                    *ngIf="messageError.length > 0"
+                    class="text-white bg-red-500 p-2 rounded-md my-4"
+                >
+                    {{messageError}}
+                </span>
+                <input
+                    class="mb-4 rounded-md p-2"
+                    autocomplete="off"
+                    ngModel
+                    type="text"
+                    name="name"
+                    placeholder="Escriba su nombre de usuario"
+                />
+                <input
+                    class="mb-4 rounded-md p-2"
+                    autocomplete="off"
+                    ngModel
+                    type="email"
+                    name="email"
+                    placeholder="Escriba su email"
+                />
+                <input
+                    class="mb-4 rounded-md p-2"
+                    autocomplete="off"
+                    ngModel
+                    type="password"
+                    name="password"
+                    placeholder="Escriba su contraseña"
+                />
+                <button 
+                    type="submit"
+                    class="
+                        p-2 mb-4
+                        bg-yellow-400 rounded-full
+                        text-white font-bold
+                        transition transform ease-in-out duration-300
+                        hover:scale-105
+                ">
+                    Registrar
+                </button>
+            </div>
+        </form>
+        <a
+            routerLink="/"
+            class="
+                p-2 block text-center
+                text-yellow-400 cursor-pointer
+                hover:underline
+            ">
+            Regresar al Login
+        </a>
+    </section>
+</main>

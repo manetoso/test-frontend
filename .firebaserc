@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "journal-app-b7996": {
+      "hosting": {
+        "test-frontend": [
+          "journal-app-b7996"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "journal-app-b7996"
+  }
+}

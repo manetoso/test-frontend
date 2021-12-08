@@ -1,0 +1,64 @@
+<main class="flex justify-center items-center h-screen bg-gray-900">
+    <section class="bg-gray-900 border-2 border-gray-700 rounded-lg p-4 w-80">
+        <form
+            #basicForm="ngForm"
+            (submit)="getData(basicForm.value)"
+        >
+            <div class="flex flex-col">
+                <h3
+                    class="
+                    text-white font-bold
+                    text-3xl text-center
+                    mb-5
+                ">
+                    Login
+                </h3>
+                <span
+                    *ngIf="messageError.length > 0"
+                    class="text-white bg-red-500 p-2 rounded-md my-4"
+                >
+                    {{messageError}}
+                </span>
+                <input
+                    class="mb-4 rounded-md p-2"
+                    autocomplete="off"
+                    ngModel
+                    type="email"
+                    name="email"
+                    placeholder="Escriba su email"
+                />
+                <input
+                    class="mb-4 rounded-md p-2"
+                    autocomplete="off"
+                    ngModel
+                    type="password"
+                    name="password"
+                    placeholder="Escriba su contraseña"
+                />
+                <button
+                    *ngIf="areLocalData"
+                    class="
+                        p-2 mb-4
+                        bg-yellow-400 rounded-full
+                        text-white font-bold
+                        transition transform ease-in-out duration-300
+                        hover:scale-105
+                ">
+                    Login
+                </button>
+            </div>
+        </form>
+        <a routerLink="register">
+            <button class="
+                rounded-full p-2 block w-full
+                bg-transparent
+                text-yellow-400 font-bold
+                border border-yellow-400
+                transition transform ease-in-out duration-300
+                hover:bg-yellow-400 hover:text-white
+            ">
+                Registrar
+            </button>
+        </a>
+    </section>
+</main>
